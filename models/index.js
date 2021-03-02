@@ -24,5 +24,5 @@ module.exports = {
   User: require('./User'),
   Post: require('./Post'),
   Comment: require('./Comment'),
-  // Class: require('./Class'),
+  Character: require('./Character'),
 }
