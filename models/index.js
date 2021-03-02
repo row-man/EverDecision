@@ -20,9 +20,9 @@ mongoose.connection.on('err', (err) => {
   console.log(err);
 });
 
-// module.exports = {
-//   User: require('./User'),
-//   Post: require('./Post'),
-//   Comment: require('./Comment'),
-//   Class: require('./Class'),
-// }
+module.exports = {
+  User: require('./User'),
+  Post: require('./Post'),
+  Comment: require('./Comment'),
+  // Class: require('./Class'),
+}
