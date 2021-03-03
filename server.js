@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const postController = require('./controllers/postController');
 const indexController = require('./controllers/indexController');
+require('./models/User');
+
 
 const app = express();
 const PORT = process.env.PORT || 4000;

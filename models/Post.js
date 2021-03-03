@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
     title: {
         type: String,
         required: true,
@@ -15,6 +11,10 @@ const postSchema = new mongoose.Schema({
     },
     img: {
         type: String,
+    },
+    character: {
+      type : mongoose.Schema.Types.ObjectId,
+      ref: 'Character'
     },
     comments: [{
         type : mongoose.Schema.Types.ObjectId,

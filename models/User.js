@@ -1,28 +1,52 @@
+const config = require('config');
+const jwt = require('jsonwebtoken');
+const Joi = require('joi');
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+//simple schema
+const UserSchema = new mongoose.Schema({
   userName: {
     type: String,
     required: true,
+    minlength: 3,
+    maxlength: 50
   },
   email: {
     type: String,
     required: true,
+    minlength: 5,
+    maxlength: 255,
+    unique: true
   },
   password: {
     type: String,
     required: true,
+    minlength: 3,
+    maxlength: 255
   },
-  comments: [{
-    type : mongoose.Schema.Types.ObjectId,
-    ref: 'Comment'
-  }],
-  post: {
-    type : mongoose.Schema.Types.ObjectId,
-    ref: 'Post'
-  },
-})
+  //give different access rights if admin or not 
+  isAdmin: Boolean
+});
 
-const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+//custom method to generate authToken 
+UserSchema.methods.generateAuthToken = function() { 
+  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, config.get('myprivatekey')); //get the private key from the config file -> environment variable
+  return token;
+}
+
+const User = mongoose.model('User', UserSchema);
+
+//function to validate user 
+function validateUser(user) {
+  const schema = {
+    name: Joi.string().min(3).max(50).required(),
+    email: Joi.string().min(5).max(255).required().email(),
+    password: Joi.string().min(3).max(255).required()
+  };
+
+  return Joi.validate(user, schema);
+}
+
+module.exports = User; 
+exports.validate = validateUser;
