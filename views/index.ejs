@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-  <h1>Hello!</h1>
+<header>
   <nav>
     <li><a href="/everdecision">Home</a></li>
     <li><a href="/everdecision/login">Login</a></li>
@@ -15,21 +14,25 @@
   <div>
     <img src="/img/EverDecision.png" alt="EverDecision" class="img">
   </div>
+</header>
+<body>
   <nav>
-      <li><a href="/everdecision/classes/bard">Bard</a></li>
-      <li><a href="/everdecision/classes/cleric">Cleric</a></li>
-      <li><a href="/everdecision/classes/druid">Druid</a></li>
-      <li><a href="/everdecision/classes/enchanter">Enchanter</a></li>
-      <li><a href="/everdecision/classes/magician">Magician</a></li>
-      <li><a href="/everdecision/classes/monk">Monk</a></li>
-      <li><a href="/everdecision/classes/necromancer">Necromancer</a></li>
-      <li><a href="/everdecision/classes/paladin">Paladin</a></li>
-      <li><a href="/everdecision/classes/ranger">Ranger</a></li>
-      <li><a href="/everdecision/classes/rogue">Rogue</a></li>
-      <li><a href="/everdecision/classes/shadowknight">Shadowknight</a></li>
-      <li><a href="/everdecision/classes/shaman">Shaman</a></li>
-      <li><a href="/everdecision/classes/warrior">Warrior</a></li>
-      <li><a href="/everdecision/classes/wizard">Wizard</a></li>
+    <% for (let i = 0; i < allClasses.length; i++) { %>
+      <a href="/everdecision/classes/<%= allClasses[i]._id %>">
+        <p>
+          <%= allClasses[i].cClass %>
+        </p>
+      </a>
+    <% } %> 
   </nav>
 </body>
+<div class="footer">
+  <div class="copyright">
+      <p>&#169; 2021</p>
+  </div>
+  <div>
+      <p class="tag">DESIGNED BY: </p>
+      <p class="designBy">JOSH JOHNSON</p>
+  </div>
+</div>
 </html>

@@ -1,0 +1,24 @@
+<%- include('./partials/header') %>
+
+<main class="mainPost">
+  <h1 >Viewing Post : <%= showPost.title %></h1>
+  <h3>Posted by: <%= showPost.name %></h3>
+  <img class="postImg1" src="<%= showPost.img %>">
+  <textarea readonly class="postTxt"><%= showPost.body %></textarea>
+  <h6>Post Date: <%= showPost.createdAt %></h6>
+  <div class="editDeleteBtns">
+      <a class="editPost" href="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %>/edit">
+          <button type="submit">EDIT</button>
+      </a>
+      <form class="postDelete" action="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %>?_method=DELETE" method="POST">
+          <button type="submit">DELETE</button>
+      </form>
+  </div>
+</main>
+<form class="formComment" method="POST" action="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %> ">
+  <textarea class="newComment" name="body" id="comment" cols="30" rows="10"></textarea>
+  <button type="submit">POST COMMENT</button>
+</form>
+
+
+<%- include('./partials/footer') %>

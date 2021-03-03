@@ -2,13 +2,18 @@ const mongoose = require('mongoose');
 
 const CharacterSchema = new mongoose.Schema({
     cClass: {
-        type: String,
-        required: true,
+      type: String,
     },
-    post: {
-        type : mongoose.Schema.Types.ObjectId,
-        ref: 'Post'
+    description: {
+      type: String,
     },
+    url: {
+      type: String,
+    },
+    posts: [{
+      type : mongoose.Schema.Types.ObjectId,
+      ref: 'Post'
+    }],
 });
 
 const Character = mongoose.model('character', CharacterSchema);
