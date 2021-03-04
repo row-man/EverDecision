@@ -19,6 +19,20 @@
   <textarea class="newComment" name="body" id="comment" cols="30" rows="10"></textarea>
   <button type="submit">POST COMMENT</button>
 </form>
+<ul>
+  <% showPost.comments.forEach((comment) => { %>
+  <textarea readonly class="commentList"><%= comment.body %></textarea readonly>
+  <div class="commentBtns">
+      <form class="editComment" method="POST" action="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %>/<%= comment._id %>?_method=PUT">
+          <textarea class="txtBox" name="body" id="comment" cols="30" rows="10"></textarea>
+          <button class="postThread" type="submit">EDIT COMMENT</button>
+      </form>
+      <form class="deleteComment" action="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %>/<%= comment._id %>?_method=DELETE" method="POST">
+          <button class="postThread" type="submit">DELETE</button>
+      </form>
+  </div>
+<% }) %>
+</ul>
 
 
 <%- include('./partials/footer') %>
