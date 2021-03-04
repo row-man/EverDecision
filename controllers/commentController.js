@@ -20,7 +20,6 @@ router.post('/classes/:id/post/:id', (req, res) => {
               if (err) {
                   console.log(err);
               };
-              console.log(req.params)
           res.redirect(`/everdecision/classes/${req.params.character}/post/${req.params.id}`)
           }
       );
@@ -51,20 +50,12 @@ router.put('/classes/:id/post/:id/:id', (req, res) => {
 router.delete('/classes/:id/post/:id/:id', (req,res) => {
   const commentId = req.params.id;
   db.Comment.findByIdAndDelete(commentId, (err, deletedComment) => {
-      if (err) {
-          console.log(err);
-      };
-      db.Post.findByIdAndUpdate(
-          deletedComment.post,
-          {$pull: {comments: deletedComment._id}},
-          {new: true},
-          (err, updatedPost) => {
-            if (err) {
-              console.log(err);
-            };
-              res.redirect(`/everdecision/classes/${req.params.id}/post/${req.params.post}`)
-          }
-      );
+    if (err) console.log(err);
+      db.Post.findById(deletedComment.post, (err, updatedPost) => {
+        if (err) console.log(err);
+          res.redirect(`/everdecision/classes/${req.params.id}/post/${deletedComment.post}`)
+      }
+    );
   });
 });
 
