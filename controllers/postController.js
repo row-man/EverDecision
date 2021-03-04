@@ -68,8 +68,8 @@ router.put('/classes/:id/post/:id', (req, res) => {
     editedPost,
     { new: true },
     (err, postUpdated) => {
+      res.redirect(`/everdecision/classes/${postUpdated.character}/post/${req.params.id}`)
     });
-      res.redirect(`/everdecision`)
 });
 
 router.delete('/classes/:id/post/:id', (req, res) => {
@@ -78,9 +78,8 @@ router.delete('/classes/:id/post/:id', (req, res) => {
       if (err) {
           console.log(err)
       };
-      db.Comment.deleteMany({post: postDeleted._id}, (err, postDeleted) => {
-      });
-      res.redirect('/everdecision');
+      console.log(postDeleted)
+      res.redirect(`/everdecision/classes/${postDeleted.character}`);
   });
 });
 
