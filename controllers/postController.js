@@ -44,9 +44,7 @@ router.get('/classes/:id/post/:id', (req, res) => {
 
 router.get('/classes/:id/post/:id/edit', (req, res) => {
   const postId = req.params.id;
-  console.log(postId, "LOOK HERE!!!!!")
-  db.Post.findById(postId)
-  .exec((err, foundPost) => {
+  db.Post.findById(postId, (err, foundPost) => {
     if (err) {
       console.log(err)
     }
@@ -55,6 +53,26 @@ router.get('/classes/:id/post/:id/edit', (req, res) => {
     }
     res.render('editPost', context)
   })
+});
+
+router.put('/classes/:classId/post/:postId', (req, res) => {
+  console.log(req.params.classId, "LOOOOK HERE!!!!!!!!!!!")
+  const postId = req.params.id;
+  const editedPost = {
+      name: req.body.name,
+      title: req.body.title,
+      body: req.body.body,
+      img: req.body.img
+  }
+  db.Post.findByIdAndUpdate(
+      postId,
+      editedPost,
+      { new: true },
+      (err, postUpdated) => {
+      });
+      console.log(postId)
+      res.redirect(`/everdecision/classes/${postId}`)
+      console.log(req.params.classId, "LOOOOK HERE!!!!!!!!!!!")
 });
 
 

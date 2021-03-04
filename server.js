@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const postController = require('./controllers/postController');
 const indexController = require('./controllers/indexController');
+const morgan = require('morgan');
 require('./models/User');
 
 
@@ -14,6 +15,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use('/everdecision', indexController, postController);
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
+app.use(morgan('tiny'))
 
 
 

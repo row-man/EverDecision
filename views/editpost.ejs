@@ -1,16 +1,8 @@
 <%- include('./partials/header') %>
 
 <main class="mainPost">
-  <h1 >Viewing Post : <%= showPost.title %></h1>
-  <h3>Posted by: <%= showPost.name %></h3>
-  <img class="postImg1" src="<%= showPost.img %>">
-  <textarea readonly class="postTxt"><%= showPost.body %></textarea>
-  <h6>Post Date: <%= showPost.createdAt %></h6>
   <div class="editDeleteBtns">
-      <a class="editPost" href="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %>/edit">
-          <button type="submit">EDIT</button>
-      </a>
-      <form action="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %>" method="POST">
+      <form action="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %>?_method=PUT" method="POST">
         <div class="postName">
             <input class="input" type="text" id="name" name="name" placeholder="Whats your name?">
         </div>
@@ -23,7 +15,7 @@
         <div class="postImg">
             <input class="input" type="text" id="img" name="img" placeholder="Add a Link to an Image">
         </div>
-        <button class="postThread" type="submit">POST THREAD</button>
+        <button class="postThread" type="submit">UPDATE THREAD</button>
     </form>
   </div>
 </main>
