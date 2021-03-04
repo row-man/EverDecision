@@ -55,26 +55,33 @@ router.get('/classes/:id/post/:id/edit', (req, res) => {
   })
 });
 
-router.put('/classes/:classId/post/:postId', (req, res) => {
-  console.log(req.params.classId, "LOOOOK HERE!!!!!!!!!!!")
+router.put('/classes/:id/post/:id', (req, res) => {
   const postId = req.params.id;
   const editedPost = {
-      name: req.body.name,
-      title: req.body.title,
-      body: req.body.body,
-      img: req.body.img
+    name: req.body.name,
+    title: req.body.title,
+    body: req.body.body,
+    img: req.body.img,
   }
   db.Post.findByIdAndUpdate(
-      postId,
-      editedPost,
-      { new: true },
-      (err, postUpdated) => {
-      });
-      console.log(postId)
-      res.redirect(`/everdecision/classes/${postId}`)
-      console.log(req.params.classId, "LOOOOK HERE!!!!!!!!!!!")
+    postId,
+    editedPost,
+    { new: true },
+    (err, postUpdated) => {
+    });
+      res.redirect(`/everdecision`)
 });
 
-
+router.delete('/classes/:id/post/:id', (req, res) => {
+  const postId = req.params.id;
+  db.Post.findByIdAndDelete(postId, (err, postDeleted) => {
+      if (err) {
+          console.log(err)
+      };
+      db.Comment.deleteMany({post: postDeleted._id}, (err, postDeleted) => {
+      });
+      res.redirect('/everdecision');
+  });
+});
 
 module.exports = router;
