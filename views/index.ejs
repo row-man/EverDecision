@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<header>
-  <nav>
-    <li><a href="/everdecision">Home</a></li>
-    <li><a href="/everdecision/login">Login</a></li>
-  </nav>
-  <div>
-    <img src="/img/EverDecision.png" alt="EverDecision" class="img">
-  </div>
-</header>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link  href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,bold" rel="stylesheet" type="text/css" >
+    <link  href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" >
+    <link  href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css" >
+    <title>EverDecision</title>
+  </head>
+
+<%- include('./partials/header') %>
+
 <body>
-  <nav>
+  <nav class="charNav">
     <% for (let i = 0; i < allClasses.length; i++) { %>
-      <a href="/everdecision/classes/<%= allClasses[i]._id %>">
-        <p>
-          <%= allClasses[i].cClass %>
-        </p>
-      </a>
+      <div class="pagegradient">
+        <a class="button" href="/everdecision/classes/<%= allClasses[i]._id %>">
+          <img class="epic" src="<%= allClasses[i].icon %>" />
+          <span>
+            <p class="className">
+              <%= allClasses[i].cClass %>
+            </p>
+          </span>
+        </a>
+      </div>
     <% } %> 
   </nav>
 </body>
-<div class="footer">
-  <div class="copyright">
-      <p>&#169; 2021</p>
-  </div>
-  <div>
-      <p class="tag">DESIGNED BY: </p>
-      <p class="designBy">JOSH JOHNSON</p>
-  </div>
-</div>
+
+<%- include('./partials/footer') %>
+
 </html>

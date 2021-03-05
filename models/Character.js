@@ -10,6 +10,9 @@ const CharacterSchema = new mongoose.Schema({
     url: {
       type: String,
     },
+    icon: {
+      type: String,
+    },
     posts: [{
       type : mongoose.Schema.Types.ObjectId,
       ref: 'Post'

@@ -4,35 +4,21 @@ const db = require('../models');
 
 router.get('/', (req, res) => {
   db.Character.find({}, (err, allChar) => {
-    if (err) {
-      console.log(err)
-    };
-    const context = {
-      allClasses: allChar,
-    }
+    if (err) console.log(err);
+    const context = {allClasses: allChar}
     res.render('index', context)
-  })
-})
+  });
+});
 
 router.get('/classes/:id', (req, res) => {
   const charData = req.params.id;
   db.Character.findById(charData)
   .populate('posts')
   .exec((err, foundChar) => {
-      if (err) {
-          console.log(err)
-      };
-      const context = {
-          showChar: foundChar
-      };
-      res.render('showclass', context)
+    if (err) console.log(err);
+    const context = {showChar: foundChar};
+    res.render('showclass', context)
   });
 });
-
-
-
-router.get('/login', (req, res) => {
-  res.render('login')
-})
 
 module.exports = router;

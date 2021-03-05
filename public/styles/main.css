@@ -1,0 +1,163 @@
+* {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  margin: 0;
+  padding: 0;
+  /* height:100vh; */
+}
+
+
+
+.navBar {
+  font-family: 'Montserrat','PT Sans Narrow';
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  width: 100vw;
+  height: 50px;
+  color: #FFFFFF;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(.34, rgba(230,237,241,.05)),
+    color-stop(.67, rgba(230,237,241,0)));
+  -webkit-background-size: 5px 5px;
+  margin: 0px;
+  
+}
+
+title {
+  display: none;
+}
+
+.navLink {
+  margin: 0 50px 0 50px;
+}
+
+.eqimg {
+  width: 100vw;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #6e92c8;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(.34, rgba(230,237,241,.05)),
+    color-stop(.67, rgba(230,237,241,0)));
+  -webkit-background-size: 5px 5px;
+  margin: 0px;
+}
+
+.button {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 10px;
+  padding:0;
+  text-decoration: none;
+  background-image: linear-gradient(black,white);
+  
+  -webkit-border-radius: 10px;
+  
+  -webkit-box-shadow: 
+    0px 3px rgb(96, 82, 82),
+    0px 4px rgba(118,118,118,1),
+    0px 5px rgba(108,108,108,1),
+    0px 6px rgba(98,98,98,1),
+    0px 7px rgba(88,88,88,1),
+    0px 8px rgba(78,78,78,1),
+    0px 14px 6px -1px rgba(128,128,128,1);
+  
+  -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+}
+
+.epic:hover {
+  -webkit-transform: translate(0, 5px);
+
+}
+
+.className {
+  padding: 0;
+  margin: 0;
+}
+
+.button span {
+  background-color: transparent;
+  -webkit-background-size: 100%, 100%, 100%, 4px 4px;
+  -webkit-border-radius: 10px;
+  -webkit-transition: -webkit-transform .1s ease-in-out;
+  display: inline-block;
+  padding: 10px;
+  color: #5490abc7;
+  text-transform: uppercase;
+  font-family: 'Montserrat','PT Sans Narrow';
+  font-weight: 200;
+  font-size: 16px;
+  text-shadow: 0px 1px #fff, 0px -1px #262F33;
+}
+
+.button span:hover {
+  color: #1286B8;
+  text-shadow: 0px -1px #97A63A;
+  cursor: pointer;
+}
+
+.button:active {
+  -webkit-box-shadow: 
+    0px 3px rgba(128,128,128,1),
+    0px 4px rgba(118,118,118,1),
+    0px 5px rgba(108,108,108,1),
+    0px 6px rgba(98,98,98,1),
+    0px 7px rgba(88,88,88,1),
+    0px 8px rgba(78,78,78,1),
+    0px 10px 2px 0px rgba(128,128,128,.6);
+}
+
+.button:active span{
+  -webkit-transform: translate(0, 5px);
+}
+
+.button span:after {
+  /* content: "DING!"; */
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: sticky;
+  right: 0px;
+  top: 30px;    
+  
+  font-family: 'Cabin';
+  font-weight: 700;
+  color: #d2ba1c;
+  text-shadow: 0px 1px #fff, 0px -1px #97A63A;
+  font-size: 26px;
+}
+
+.charNav {
+  width: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+}
