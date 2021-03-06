@@ -15,12 +15,15 @@
 <%- include('./partials/header') %> 
 <body>
   <div>
-    <h1><%= showChar.cClass %></h1>
   </div>
-  <div>
+  <div class="showClass">
+    <img src="<%= showChar.url %>" >
+    <h1 class="charClass"><%= showChar.cClass %></h1>
     <img src="<%= showChar.url %>" >
   </div>
   <div>
+  </div>
+  <div class="classDesc">
     <p><%= showChar.description %></p>
   </div>
   <form action="/everdecision/classes/<%= showChar.id %>" method="POST">

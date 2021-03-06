@@ -1,3 +1,10 @@
+@font-face {
+  font-family: Testfont;
+  src: url("./The\ Centurion\ .ttf");
+}
+
+
+
 * {
   display: flex;
   align-items: center;
@@ -8,46 +15,105 @@
 header {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   background-repeat: no-repeat;
   background-size: 100vw;
   margin: 0;
   padding: 0;
-  /* height:100vh; */
 }
 
+.welcome {
+  height: 50px;	
+overflow: hidden;
+position: relative;
+background: yellow;
+color: orange;
+border: 1px solid orange;
+-moz-animation: scroll-left 15s linear infinite;
+-webkit-animation: scroll-left 15s linear infinite;
+animation: scroll-left 15s linear infinite;
+}
 
+.showClass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.charClass {
+  font-family: Testfont;
+  font-size: 100px;
+  background-image: -webkit-linear-gradient(#19547b,#ffd89b, #19547b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+  margin:0;
+  -webkit-animation:moving 20s ease infinite;
+}
+
+@-webkit-keyframes moving {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 500px;
+  }
+}
 
 .navBar {
   font-family: 'Montserrat','PT Sans Narrow';
+  word-wrap: normal;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-content: flex-start;
+  justify-content: center;
   background-color: black;
   width: 100vw;
   height: 50px;
   color: #FFFFFF;
-  background-image: -webkit-gradient(
-    linear,
+  background-image: -webkit-gradient(linear,
     left top,
     right top,
     color-stop(.34, rgba(230,237,241,.05)),
     color-stop(.67, rgba(230,237,241,0)));
   -webkit-background-size: 5px 5px;
   margin: 0px;
-  
+  overflow: visible;
+  min-width: 500px;
+  text-align: center;
 }
 
 title {
   display: none;
 }
 
+a {
+  text-decoration: none;
+  font-family: 'Montserrat','PT Sans Narrow';
+}
+
 .navLink {
   margin: 0 50px 0 50px;
 }
 
+.navLink:hover {
+  -webkit-transform: translate(0, 5px);
+}
+
 .eqimg {
   width: 100vw;
+}
+
+h6 {
+  padding: 0;
+  margin: 5px;
+}
+
+p {
+  padding: 0;
+  margin: 5px;
+  line-height: 20px;
 }
 
 body {
@@ -72,10 +138,8 @@ body {
   margin: 10px;
   padding:0;
   text-decoration: none;
-  background-image: linear-gradient(black,white);
-  
+  background-image: linear-gradient(white,rgba(40, 20, 20, 0.663));
   -webkit-border-radius: 10px;
-  
   -webkit-box-shadow: 
     0px 3px rgb(96, 82, 82),
     0px 4px rgba(118,118,118,1),
@@ -84,12 +148,11 @@ body {
     0px 7px rgba(88,88,88,1),
     0px 8px rgba(78,78,78,1),
     0px 14px 6px -1px rgba(128,128,128,1);
-  
   -webkit-transition: -webkit-box-shadow .1s ease-in-out;
 }
 
 .epic:hover {
-  -webkit-transform: translate(0, 5px);
+  -webkit-transform: translate(5px, 0);
 
 }
 
@@ -104,8 +167,8 @@ body {
   -webkit-border-radius: 10px;
   -webkit-transition: -webkit-transform .1s ease-in-out;
   display: inline-block;
-  padding: 10px;
-  color: #5490abc7;
+  padding: 5px;
+  color: #000000c7;
   text-transform: uppercase;
   font-family: 'Montserrat','PT Sans Narrow';
   font-weight: 200;
@@ -115,7 +178,7 @@ body {
 
 .button span:hover {
   color: #1286B8;
-  text-shadow: 0px -1px #97A63A;
+  text-shadow: 0px -1px #91b2c0;
   cursor: pointer;
 }
 
@@ -135,7 +198,6 @@ body {
 }
 
 .button span:after {
-  /* content: "DING!"; */
   display: block;
   width: 10px;
   height: 10px;
@@ -151,6 +213,7 @@ body {
 }
 
 .charNav {
+  content: "DING!";
   width: 600px;
   display: flex;
   justify-content: space-evenly;
@@ -159,5 +222,32 @@ body {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  overflow: scroll;
+}
+
+.classDesc {
+  width: 50vw;
+  margin: 20px;
+  padding: 20px;
+  border: solid 5px black;
+}
+
+button {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 10px;
+  padding:0;
+  text-decoration: none;
+  background-image: linear-gradient(white,rgba(40, 20, 20, 0.663));
+  -webkit-border-radius: 10px;
+  -webkit-box-shadow: 
+    0px 3px rgb(96, 82, 82),
+    0px 4px rgba(118,118,118,1),
+    0px 5px rgba(108,108,108,1),
+    0px 6px rgba(98,98,98,1),
+    0px 7px rgba(88,88,88,1),
+    0px 8px rgba(78,78,78,1),
+    0px 14px 6px -1px rgba(128,128,128,1);
+  -webkit-transition: -webkit-box-shadow .1s ease-in-out;
 }
