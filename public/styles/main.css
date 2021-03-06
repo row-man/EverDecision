@@ -95,6 +95,9 @@ a {
 
 .navLink {
   margin: 0 50px 0 50px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: 'Montserrat','PT Sans Narrow';
 }
 
 .navLink:hover {
