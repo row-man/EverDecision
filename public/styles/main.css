@@ -231,12 +231,13 @@ body {
 
 .classDesc {
   width: 50vw;
-  margin: 0px;
+  margin: 5px;
   padding: 20px;
   border: solid 5px black;
   background-image: url('/img/parchment.jpg');
   background-size: cover;
   font-size: 20px;
+  font-family: 'Montserrat','PT Sans Narrow';
 }
 
 .classDesc li {
@@ -325,7 +326,7 @@ a {
   border: none;
   cursor: default;
   padding: 10px;
-  border: solid 2px black;
+  font-family: 'Montserrat','PT Sans Narrow';
 }
 
 .txtarea {
@@ -459,4 +460,7 @@ a:hover {
 .commentShow {
   display: flex;
   flex-direction: row;
+  border: solid 2px black;
+  padding: 0px;
+  margin: 2px;
 }
