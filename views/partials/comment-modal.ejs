@@ -1,0 +1,11 @@
+<div class="popup-wrapper">
+  <div id="popup-container">
+    <form class="formComment" method="POST" action="/everdecision/classes/<%= showPost.character %>/post/<%= showPost._id %> ">
+      <textarea class="txtarea" name="body" id="comment" cols="30" rows="10"></textarea>
+      <button type="submit">POST COMMENT</button>
+      <div class="modal-footer">
+        <p><a class="onclick" herf="javascript:void(0)" onclick="toggle_visibility('popup-position2');">Cancel</a></p>
+      </div>
+    </form>
+  </div>
+</div>

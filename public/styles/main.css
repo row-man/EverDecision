@@ -3,8 +3,6 @@
   src: url("./The\ Centurion\ .ttf");
 }
 
-
-
 * {
   display: flex;
   align-items: center;
@@ -44,20 +42,21 @@ animation: scroll-left 15s linear infinite;
 .charClass {
   font-family: Testfont;
   font-size: 100px;
-  background-image: -webkit-linear-gradient(#19547b,#ffd89b, #19547b);
+  background-image: -webkit-repeating-linear-gradient( #ffd89b, #19547b,#ffd89b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 0;
   margin:0;
-  -webkit-animation:moving 20s ease infinite;
+  -webkit-animation:moving 25s ease infinite;
+  cursor: default;
 }
 
 @-webkit-keyframes moving {
   0% {
     background-position: 0 0;
   }
-  100% {
-    background-position: 0 500px;
+  50% {
+    background-position: 0px 200px;
   }
 }
 
@@ -82,6 +81,7 @@ animation: scroll-left 15s linear infinite;
   overflow: visible;
   min-width: 500px;
   text-align: center;
+  cursor: default;
 }
 
 title {
@@ -98,6 +98,7 @@ a {
   font-size: 16px;
   text-transform: uppercase;
   font-family: 'Montserrat','PT Sans Narrow';
+  cursor: pointer;
 }
 
 .navLink:hover {
@@ -108,15 +109,17 @@ a {
   width: 100vw;
 }
 
-h6 {
+h1, h6 {
   padding: 0;
   margin: 5px;
+  cursor: default;
 }
 
 p {
   padding: 0;
   margin: 5px;
-  line-height: 20px;
+  line-height: 24px;
+  cursor: default;
 }
 
 body {
@@ -162,6 +165,7 @@ body {
 .className {
   padding: 0;
   margin: 0;
+  cursor: pointer;
 }
 
 .button span {
@@ -207,7 +211,6 @@ body {
   position: sticky;
   right: 0px;
   top: 30px;    
-  
   font-family: 'Cabin';
   font-weight: 700;
   color: #d2ba1c;
@@ -216,7 +219,6 @@ body {
 }
 
 .charNav {
-  content: "DING!";
   width: 600px;
   display: flex;
   justify-content: space-evenly;
@@ -229,9 +231,17 @@ body {
 
 .classDesc {
   width: 50vw;
-  margin: 20px;
+  margin: 0px;
   padding: 20px;
   border: solid 5px black;
+  background-image: url('/img/parchment.jpg');
+  background-size: cover;
+  font-size: 20px;
+}
+
+.classDesc li {
+  display: inline-flex;
+  flex-wrap: nowrap;
 }
 
 button {
@@ -239,7 +249,10 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 10px;
+  margin: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: 'Montserrat','PT Sans Narrow';
   padding:0;
   text-decoration: none;
   background-image: linear-gradient(white,rgba(40, 20, 20, 0.663));
@@ -253,4 +266,197 @@ button {
     0px 8px rgba(78,78,78,1),
     0px 14px 6px -1px rgba(128,128,128,1);
   -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  -webkit-transform: translate(0, 5px);
+}
+
+.popup-position{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+}
+
+#popup-wrapper{
+text-align: left;
+background-image: url('./img/parchment.jpg');
+background-size: cover;
+}
+
+#popup-container{
+  background-image: url('/img/parchment.jpg');
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  background-size: cover;
+}
+
+a {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden .far {
+  display:none;
+}
+
+.readonly {
+  background: none;
+  resize: none;
+  width: 50vw;
+  height: 200px;
+  border: none;
+  cursor: default;
+  padding: 10px;
+}
+
+.readonly1 {
+  background: none;
+  resize: none;
+  width: 45vw;
+  border: none;
+  cursor: default;
+  padding: 10px;
+  border: solid 2px black;
+}
+
+.txtarea {
+  background: rgba(255, 255, 255, 0.25);
+  resize: none;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.25);
+  resize: none;
+}
+
+.classPosts {
+  margin:50px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: 'Montserrat','PT Sans Narrow';
+  background-image: url('/img/parchment.jpg');
+  background-size: cover;
+}
+
+a:hover {
+  color: #1286B8;
+  text-shadow: 0px -1px #91b2c0;
+  cursor: pointer;
+}
+
+.postNav {
+  width: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.postbutton {
+  width: 50vw;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 5px;
+  padding:0px;
+  text-decoration: none;
+  background-image: linear-gradient(white,rgba(40, 20, 20, 0.663));
+  -webkit-border-radius: 10px;
+  -webkit-box-shadow: 
+    0px 3px rgb(96, 82, 82),
+    0px 4px rgba(118,118,118,1),
+    0px 5px rgba(108,108,108,1),
+    0px 6px rgba(98,98,98,1),
+    0px 7px rgba(88,88,88,1),
+    0px 8px rgba(78,78,78,1),
+    0px 14px 6px -1px rgba(128,128,128,1);
+  -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+  text-transform: uppercase;
+}
+
+.postbutton span {
+  background-color: transparent;
+  -webkit-background-size: 100%, 100%, 100%, 4px 4px;
+  -webkit-border-radius: 10px;
+  -webkit-transition: -webkit-transform .1s ease-in-out;
+  display: inline-block;
+  padding: 5px;
+  color: #000000c7;
+  text-transform: uppercase;
+  font-family: 'Montserrat','PT Sans Narrow';
+  font-weight: 200;
+  font-size: 16px;
+  text-shadow: 0px 1px #fff, 0px -1px #262F33;
+}
+
+.postbutton span:hover {
+  color: #1286B8;
+  text-shadow: 0px -1px #91b2c0;
+  cursor: pointer;
+}
+
+.postbutton:active {
+  -webkit-box-shadow: 
+    0px 3px rgba(128,128,128,1),
+    0px 4px rgba(118,118,118,1),
+    0px 5px rgba(108,108,108,1),
+    0px 6px rgba(98,98,98,1),
+    0px 7px rgba(88,88,88,1),
+    0px 8px rgba(78,78,78,1),
+    0px 10px 2px 0px rgba(128,128,128,.6);
+}
+
+.postbutton:active span{
+  -webkit-transform: translate(0, 5px);
+}
+
+.postbutton span:after {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: sticky;
+  right: 0px;
+  top: 30px;    
+  font-family: 'Cabin';
+  font-weight: 700;
+  color: #d2ba1c;
+  text-shadow: 0px 1px #fff, 0px -1px #97A63A;
+  font-size: 26px;
+}
+
+.editDeleteBtns {
+  display: flex;
+  flex-direction: column;
+}
+
+.editDeleteBtns1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.postImg1 {
+  width: 50vw;
+}
+
+.postThread {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.commentShow {
+  display: flex;
+  flex-direction: row;
 }
